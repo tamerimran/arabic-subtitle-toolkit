@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arabic-subtitle-toolkit"
+version = "0.1.0"
+description = "A comprehensive Python toolkit for Arabic subtitle processing, transliteration, and text normalization."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Tamer Imran" }]
+keywords = [
+    "arabic",
+    "subtitles",
+    "transliteration",
+    "srt",
+    "vtt",
+    "localization",
+    "rtl",
+    "nlp",
+    "text-normalization",
+    "content-creation",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Internationalization",
+    "Topic :: Software Development :: Localization",
+]
+
+[project.urls]
+Homepage = "https://github.com/tamerimran/arabic-subtitle-toolkit"
+Documentation = "https://github.com/tamerimran/arabic-subtitle-toolkit#readme"
+Repository = "https://github.com/tamerimran/arabic-subtitle-toolkit"
+Issues = "https://github.com/tamerimran/arabic-subtitle-toolkit/issues"
+
+[project.scripts]
+ast = "arabic_subtitle_toolkit.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
