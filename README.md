@@ -2,7 +2,7 @@
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-40%20passing-brightgreen.svg)]()
 
 A comprehensive Python toolkit for Arabic subtitle processing, transliteration, and text normalization — built for content creators, developers, and researchers working with Arabic media.
 
@@ -26,6 +26,7 @@ This toolkit solves all of these in a single, zero-dependency Python package.
 | **Normalization** | Alef variants, diacritics, tatweel, ta marbuta, Unicode NFC |
 | **RTL Wrapping** | Automatic Unicode RTL markers for Arabic subtitle lines |
 | **CLI** | Command-line tools for batch processing workflows |
+| **Batch Processing** | Directory-level operations with custom transform pipelines |
 | **Zero Dependencies** | Pure Python — no external packages required |
 
 ## Installation
@@ -120,6 +121,28 @@ n = ArabicNormalizer(
     normalize_ta_marbuta=False,  # preserve meaning
 )
 n.normalize("الْإِسْلَامُ")
+```
+
+### Batch Processing
+
+```python
+from arabic_subtitle_toolkit import batch_normalize, batch_convert
+
+# Normalize all Arabic subtitles in a directory
+results = batch_normalize("./raw_subs/", output_dir="./clean_subs/")
+print(f"Processed {len(results)} files")
+
+# Convert entire SRT library to WebVTT
+results = batch_convert("./srt_files/", "./vtt_output/", output_format="vtt")
+
+# Custom pipeline with recursive directory search
+from arabic_subtitle_toolkit import batch_process
+results = batch_process(
+    "./subtitles/",
+    "./output/",
+    transform=lambda s: s.normalize().wrap_rtl().shift(500),
+    recursive=True,
+)
 ```
 
 ## CLI Usage
