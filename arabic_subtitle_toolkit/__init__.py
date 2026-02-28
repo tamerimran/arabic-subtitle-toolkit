@@ -38,6 +38,12 @@ from arabic_subtitle_toolkit.normalization.normalizer import (
     normalize_arabic,
     ArabicNormalizer,
 )
+from arabic_subtitle_toolkit.batch import (
+    batch_process,
+    batch_normalize,
+    batch_convert,
+    BatchResult,
+)
 
 __all__ = [
     "transliterate",
@@ -48,4 +54,8 @@ __all__ = [
     "SubtitleEntry",
     "normalize_arabic",
     "ArabicNormalizer",
+    "batch_process",
+    "batch_normalize",
+    "batch_convert",
+    "BatchResult",
 ]
